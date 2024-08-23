@@ -1,7 +1,7 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import TeamForm from './pages/TeamForm';
-import Payment from './pages/Payment';
-import PrizeDisplay from './pages/PrizeDisplay';
+import TeamForm from './pages/TeamForm.js';
+import Payment from './pages/Payment.js';
+import PrizeDisplay from './pages/PrizeDisplay.js';
 import './styles/App.css';
 
 function App() {
