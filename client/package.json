@@ -14,11 +14,19 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
+
+    "dev": "vite",
+    
+
     "start": "react-scripts start",
-    "build": "react-scripts build",
+    
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "build": "vite build",
+    "serve": "vite preview"
+    
   },
+
   "eslintConfig": {
     "extends": [
       "react-app",
