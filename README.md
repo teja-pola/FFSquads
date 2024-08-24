@@ -52,7 +52,7 @@ Follow these steps to set up the project locally:
 6. Open the application in your browser:
 
    ```
-   http://localhost:5001
+   http://localhost:5000
    ```
 
 ### Usage
