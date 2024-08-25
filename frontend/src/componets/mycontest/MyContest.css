@@ -1,0 +1,33 @@
+.my-contest-container{
+    margin-bottom:50px;
+    margin-top:10px;
+}
+
+.my-contest{
+    width:350px;
+    padding:10px;
+    background-color:lightblue;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
+}
+
+.my-contest h4{
+    font-size:15px;
+}
+
+.room-title, .room-details, .room-prize{
+    display: flex;
+    flex-direction:row;
+    justify-content:space-between
+}
+
+.room-spots {
+    display: flex;
+    flex-direction:row;
+    justify-content:space-between
+}
+
+.join-now{
+    display: flex;
+    align-items:center;
+    justify-content:center;
+}
