@@ -1,33 +1,104 @@
-.my-contest-container{
-    margin-bottom:50px;
-    margin-top:10px;
+/* Global Font Import */
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap');
+
+/* General Styles */
+body {
+  font-family: 'Orbitron', sans-serif;
+  background-color: #ffffff;
+  color: #FFFFFF;
 }
 
-.my-contest{
-    width:350px;
-    padding:10px;
-    background-color:lightblue;
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
+/* Section Heading */
+.section-heading {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #0A0C24;
+  margin-bottom: 20px;
+  
 }
 
-.my-contest h4{
-    font-size:15px;
+/* Container */
+.my-contest-container {
+  margin: 30px auto;
+  max-width: 500px;
+  
+
+  justify-content: left;
+
 }
 
-.room-title, .room-details, .room-prize{
-    display: flex;
-    flex-direction:row;
-    justify-content:space-between
+/* Contest Card */
+.my-contest {
+  background-color: #0A0C24;
+  border-radius: 10px;
+  padding: 20px;
+  margin-bottom: 30px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
+  transition: transform 0.3s;
 }
 
+.my-contest:hover {
+  transform: scale(1.05);
+}
+
+/* Contest Text Styles */
+.my-contest h4 {
+  font-size: 1rem;
+  margin: 5px 0;
+  color: #FFFFFF;
+}
+
+/* Room Details, Title, and Prize Sections */
+.room-title, .room-details, .room-prize {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+/* Room Spots */
 .room-spots {
-    display: flex;
-    flex-direction:row;
-    justify-content:space-between
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 20px 0;
 }
 
-.join-now{
-    display: flex;
-    align-items:center;
-    justify-content:center;
+/* Progress Bar */
+progress {
+  
+  height: 10px;
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+progress::-webkit-progress-bar {
+  background-color: #2C2E4A;
+  border-radius: 5px;
+}
+
+progress::-webkit-progress-value {
+  background-color: #FFCC00;
+  border-radius: 5px;
+}
+
+/* Join Now Button */
+.join-now {
+  text-align: center;
+}
+
+.join-btn {
+  background-color: #FFCC00;
+  color: #0A0C24;
+  font-weight: 700;
+  font-size: 1.1rem;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.join-btn:hover {
+  background-color: #FFD633;
 }
