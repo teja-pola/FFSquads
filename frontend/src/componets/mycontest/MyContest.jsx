@@ -3,11 +3,9 @@ import './MyContest.css';
 
 const MyContest = () => {
   return (
-
-    <div className="my-contest-container" id='my-contest'>
-        <h2>My Contests</h2>
-    <div className='my-contest'>
-   
+    <div className="my-contest-container">
+      <h2 className="section-heading">My Contests</h2>
+      <div className="my-contest">
         <div className="room-title">
           <h4>First Come First Serve</h4>
           <h4>ID: 123456</h4>
@@ -15,14 +13,16 @@ const MyContest = () => {
         <div className="room-details">
           <div className="room-details-date">
             <h4>Date: 01/01/2024</h4>
-            </div>
-            <div className="room-details-time">
-                <h4>Time: 05:00 PM</h4>
-            </div>
-            <div className="room-details-map">
-                <h4>Map: Bermuda</h4>
-            </div>
-
+          </div>
+          <div className="room-details-time">
+            <h4>Time: 05:00 PM</h4>
+          </div>
+          <div className="room-details-map">
+            <h4>Map: Bermuda</h4>
+          </div>
+          <div className="room-details-perspective">
+            <h4>Perspective: TPP</h4>
+          </div>
         </div>
         <div className="room-prize">
           <div className="room-prize-pool">
