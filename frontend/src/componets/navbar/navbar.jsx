@@ -19,10 +19,10 @@ const Navbar = ({setShowLogin}) => {
     }
 
   return (
-    <div>
+    <div className='nav-container'>
       <nav className="navbar navbar-expand-lg bg-body-tertiary">
         <div className="container-fluid"  id='navbar'>
-          <Link to="/" className="navbar-brand" href="#">Navbar</Link>
+          <Link to="/" className="navbar-brand" ><img src="LOGO.png" alt="LOGO" /></Link>
           {!token ? (
           <button onClick={() => setShowLogin(true)}>sign in</button>
         ) : (
