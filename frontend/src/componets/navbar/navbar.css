@@ -1,78 +1,161 @@
-/* Navbar CSS */
+/* Importing Orbitron Font */
 @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap');
 
+/* General Styles */
+body {
+  font-family: 'Orbitron', sans-serif;
+  background-color: #0A0C24;
+  color: #FFFFFF;
+}
+
+/* Navbar Container */
 .navbar {
-    background-color: #0A0C24;
-    padding: 0.5rem 1rem;
-    font-family: 'Orbitron', sans-serif;
-    width: 100%;
+  background-color: #14162D;
+  padding: 10px 30px;
+  border-bottom: 2px solid #FFCC00;
+  width: 100%;
 }
 
-
-.navbar-container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 100%;
-    margin-bottom: -10px;
+.container-fluid {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
-.logo-image {
-    width: 300px;
-    height: auto;
+/* Brand Name */
+.navbar-brand {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #FFCC00;
+  cursor: pointer;
 }
 
+/* Navbar Toggler for Mobile */
+.navbar-toggler {
+  border: none;
+}
+
+.navbar-toggler-icon {
+  background-color: #FFCC00;
+}
+
+/* Navbar Links */
 .navbar-nav {
-    display: flex;
-    gap: 10px;
-    margin-right: 30px;
+  display: flex;
+  gap: 30px;
 }
 
-.nav-link {
-    color: #FFFFFF;
-    font-weight: 500;
-    font-size: 1.1rem;
-    text-transform: uppercase;
-    cursor: pointer;
-
+.nav-item .nav-link {
+  font-size: 1.1rem;
+  color: #FFFFFF;
+  text-transform: uppercase;
+  transition: color 0.3s;
+  position: relative;
 }
 
+/* Hover and Active State for Links */
+.nav-item .nav-link:hover,
+#active {
+  color: #FFCC00;
+}
+
+#active::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  background-color: #FFCC00;
+  bottom: -6px;
+  left: 0;
+}
+
+/* Profile Section */
 .navbar-profile {
-    position: relative;
-    margin:30px;
+  display: flex;
+  align-items: center;
+  position: relative;
+  cursor: pointer;
 }
 
+.navbar-profile img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+/* Profile Dropdown */
 .nav-profile-dropdown {
-    position: absolute;
-    display: none;
-    right: 0;
-    z-index: 1;
+  position: absolute;
+  top: 50px;
+  right: 0;
+  background-color: #1B1D33;
+  padding: 10px;
+  border-radius: 5px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
+  display: none;
 }
 
 .navbar-profile:hover .nav-profile-dropdown {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    background-color: lightblue;
-    padding: 12px 25px;
-    border-radius: 4px;
-    border: 1px solid blue;
-    outline: 2px solid white;
-    list-style: none;
+  display: block;
 }
 
 .nav-profile-dropdown li {
-    display: flex;
-    align-items: center;
+  display: flex;
+  align-items: center;
+  padding: 8px 10px;
+  cursor: pointer;
+}
+
+.nav-profile-dropdown li img {
+  width: 20px;
+  height: 20px;
+  margin-right: 10px;
+}
+
+.nav-profile-dropdown li p {
+  margin: 0;
+  font-size: 0.9rem;
+}
+
+.nav-profile-dropdown hr {
+  border-color: #FFCC00;
+  margin: 8px 0;
+}
+
+/* Sign-in Button */
+button {
+  background-color: #FFCC00;
+  color: #0A0C24;
+  font-weight: 700;
+  font-size: 1rem;
+  padding: 8px 16px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+button:hover {
+  background-color: #FFD633;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .navbar-nav {
+    flex-direction: column;
     gap: 10px;
-    cursor: pointer;
-}
-
-.nav-profile-dropdown img {
-    width: 20px;
-}
-
-.nav-profile-dropdown li:hover {
-    color: blue;
-
+    text-align: center;
   }
+
+  .navbar-profile img {
+    width: 30px;
+    height: 30px;
+  }
+
+  .nav-item .nav-link {
+    font-size: 1rem;
+  }
+}
