@@ -1,0 +1,36 @@
+.list {
+    width: 100%;
+}
+
+.list-table {
+    width: 100%;
+    overflow-x: auto; /* Enable horizontal scrolling */
+}
+
+.list-table-format {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 15px;
+    border: 1px solid #cacaca;
+    font-size: 13px;
+    min-width: 800px; /* Set a minimum width to trigger scrolling */
+}
+
+.list-table-format.title {
+    background-color: #f9f9f9;
+}
+
+@media (max-width: 768px) {
+    .list-table-format {
+        font-size: 12px;
+        padding: 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    .list-table-format {
+        font-size: 11px;
+    }
+}
