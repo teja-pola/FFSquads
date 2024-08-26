@@ -1,12 +1,40 @@
-.navbar #active{
+/* Navbar CSS */
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap');
 
-        padding-bottom: 2px;
-        border-bottom: 2px solid #49557e;
-    
+.navbar {
+    background-color: #0A0C24;
+    padding: 0.5rem 1rem;
+    font-family: 'Orbitron', sans-serif;
+    width: 100%;
 }
 
-.navbar li {
+
+.navbar-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    margin-bottom: -10px;
+}
+
+.logo-image {
+    width: 300px;
+    height: auto;
+}
+
+.navbar-nav {
+    display: flex;
+    gap: 10px;
+    margin-right: 30px;
+}
+
+.nav-link {
+    color: #FFFFFF;
+    font-weight: 500;
+    font-size: 1.1rem;
+    text-transform: uppercase;
     cursor: pointer;
+
 }
 
 .navbar-profile {
@@ -46,4 +74,5 @@
 
 .nav-profile-dropdown li:hover {
     color: blue;
-}
+
+  }
