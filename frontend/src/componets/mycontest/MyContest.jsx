@@ -3,7 +3,7 @@ import "./MyContest.css"
 
 const MyContest = () => {
   return (
-    <div className="my-contest-container">
+    <div className="my-contest-container" id='my-contest'>
         <h2>My Contests</h2>
     <div className='my-contest'>
         <div className="room-title">
@@ -19,9 +19,6 @@ const MyContest = () => {
             </div>
             <div className="room-details-map">
                 <h4>Map: Bermuda</h4>
-            </div>
-            <div className="room-details-perspective">
-                <h4>Perspective: TPP</h4>
             </div>
         </div>
         <div className="room-prize">
