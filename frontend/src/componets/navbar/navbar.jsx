@@ -52,11 +52,10 @@ const Navbar = ({setShowLogin}) => {
             </ul>
            
           </div>
-
         </div>
-    );
+      </nav>
+    </div>
+  );
 };
 
 export default Navbar;
-
-
