@@ -1,6 +1,7 @@
 .header{
-    height: 34vw;
-    margin: 30px auto;
+    height: 15.5vw;
+    width: px;
+    margin: 20px 0px;
     background: url("../banner2.jpg") no-repeat;
     background-size: cover;
     
@@ -15,9 +16,9 @@
     flex-direction: column;
     align-items:start;
     gap:1.5vw;
-    max-width:50%;
+    max-width:100%;
     bottom:10%;
-    left:6vw;
+    left:w;
     animation: fadeIn 3s;
 }
 
