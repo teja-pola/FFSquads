@@ -1,100 +1,44 @@
-/* Importing Orbitron Font */
-@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap');
+/* navbar.css */
 
-/* General Styles */
-body {
-  font-family: 'Orbitron', sans-serif;
-  background-color: #0A0C24;
-  color: #FFFFFF;
+/* General Navbar Container */
+.nav-container {
+  width: 100%;
+  background-color: #f8f9fa; /* Light background color */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
 }
 
-/* Navbar Container */
 .navbar {
-  background-color: #14162D;
-  padding: 10px 30px;
-  border-bottom: 2px solid #FFCC00;
-  width: 100%;
+  padding: 10px 20px;
 }
 
-.container-fluid {
-  max-width: 1200px;
-  margin: 0 auto;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+.navbar-brand img {
+  height: 40px; /* Adjust logo size */
 }
 
-/* Brand Name */
-.navbar-brand {
-  font-size: 1.5rem;
-  font-weight: 700;
-  color: #FFCC00;
-  cursor: pointer;
-}
-
-/* Navbar Toggler for Mobile */
-.navbar-toggler {
-  border: none;
-}
-
-.navbar-toggler-icon {
-  background-color: #FFCC00;
-}
-
-/* Navbar Links */
-.navbar-nav {
-  display: flex;
-  gap: 30px;
-}
-
-.nav-item .nav-link {
-  font-size: 1.1rem;
-  color: #FFFFFF;
-  text-transform: uppercase;
-  transition: color 0.3s;
-  position: relative;
-}
-
-/* Hover and Active State for Links */
-.nav-item .nav-link:hover,
-#active {
-  color: #FFCC00;
-}
-
-#active::after {
-  content: '';
-  position: absolute;
-  width: 100%;
-  height: 2px;
-  background-color: #FFCC00;
-  bottom: -6px;
-  left: 0;
-}
-
-/* Profile Section */
+/* Navbar Profile */
 .navbar-profile {
+  position: relative;
   display: flex;
   align-items: center;
-  position: relative;
-  cursor: pointer;
 }
 
 .navbar-profile img {
-  width: 40px;
   height: 40px;
+  width: 40px;
   border-radius: 50%;
-  margin-right: 10px;
+  cursor: pointer;
 }
 
-/* Profile Dropdown */
+/* Dropdown Menu */
 .nav-profile-dropdown {
   position: absolute;
-  top: 50px;
+  top: 100%;
   right: 0;
-  background-color: #1B1D33;
-  padding: 10px;
+  background-color: #fff;
+  border: 1px solid #ddd;
   border-radius: 5px;
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+  padding: 10px;
   display: none;
 }
 
@@ -109,53 +53,76 @@ body {
   cursor: pointer;
 }
 
-.nav-profile-dropdown li img {
-  width: 20px;
+.nav-profile-dropdown li:hover {
+  background-color: #f0f0f0;
+}
+
+.nav-profile-dropdown img {
   height: 20px;
+  width: 20px;
   margin-right: 10px;
 }
 
-.nav-profile-dropdown li p {
+.nav-profile-dropdown p {
   margin: 0;
-  font-size: 0.9rem;
 }
 
-.nav-profile-dropdown hr {
-  border-color: #FFCC00;
-  margin: 8px 0;
-}
-
-/* Sign-in Button */
-button {
-  background-color: #FFCC00;
-  color: #0A0C24;
-  font-weight: 700;
-  font-size: 1rem;
-  padding: 8px 16px;
+/* Navbar Toggler */
+.navbar-toggler {
   border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: background-color 0.3s;
+  outline: none;
 }
 
-button:hover {
-  background-color: #FFD633;
+/* Navbar Links */
+.navbar-nav .nav-link {
+  color: #333;
+  margin-right: 15px;
+  font-weight: 500;
+  transition: color 0.3s ease;
 }
 
-/* Responsive Adjustments */
+.navbar-nav .nav-link:hover,
+.navbar-nav .nav-link#active {
+  color: #007bff; /* Primary color on hover and active */
+}
+
+.logout-link {
+  color: #dc3545; /* Red for the logout link */
+}
+
+/* Responsive Design */
+@media (max-width: 992px) {
+  .navbar-brand img {
+      height: 35px; /* Smaller logo for medium screens */
+  }
+}
+
 @media (max-width: 768px) {
   .navbar-nav {
-    flex-direction: column;
-    gap: 10px;
-    text-align: center;
+      flex-direction: column;
+      align-items: flex-start;
+  }
+
+  .navbar-nav .nav-item {
+      margin-bottom: 10px;
+  }
+
+  .navbar-nav .nav-link {
+      margin-right: 0;
+  }
+
+  .navbar-profile {
+      margin-top: 10px;
+  }
+}
+
+@media (max-width: 576px) {
+  .navbar-brand img {
+      height: 30px; /* Smaller logo for small screens */
   }
 
   .navbar-profile img {
-    width: 30px;
-    height: 30px;
-  }
-
-  .nav-item .nav-link {
-    font-size: 1rem;
+      height: 35px;
+      width: 35px;
   }
 }

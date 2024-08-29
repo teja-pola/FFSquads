@@ -5,7 +5,7 @@ const roomSchema = new mongoose.Schema({
         type: String,
         required: true,
     },
-    date:{
+    EventDate:{
         type: String,
         required: true,
     },

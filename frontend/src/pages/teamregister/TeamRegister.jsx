@@ -1,42 +1,86 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import './TeamRegister.css';
-import { useLocation } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
+import axios from 'axios';
+import { Context } from '../../context/Context';
 
 const TeamRegister = () => {
+  const { token, url } = useContext(Context);
+
   const location = useLocation();
+  const navigate = useNavigate();
   const queryParams = new URLSearchParams(location.search);
+
   const roomId = queryParams.get('roomId');
   const ticket = queryParams.get('ticket');
+  const EventDate = queryParams.get('EventDate'); 
+  const time = queryParams.get('time');
+  const map = queryParams.get('map');
 
-  console.log("Query Params Room ID:", roomId);
-  console.log("Query Params Ticket:", ticket);
 
-  const [teamName, setTeamName] = useState('');
-  const [teamLeader, setTeamLeader] = useState({
-    name: '',
-    phone: '',
-    freeFireId: '',
+  const [teamData, setTeamData] = useState({
+    teamName: '',
+    teamLeader: {
+      name: '',
+      phone: '',
+      freeFireId: '',
+    },
+    teamMembers: [
+      { name: '', freeFireId: '' },
+      { name: '', freeFireId: '' },
+      { name: '', freeFireId: '' },
+    ],
   });
-  const [teamMembers, setTeamMembers] = useState([
-    { name: '', freeFireId: '' },
-    { name: '', freeFireId: '' },
-    { name: '', freeFireId: '' },
-  ]);
+
+  useEffect(() => {
+    if (!token) {
+      navigate('/login');
+      alert('Please login');
+    }
+  }, [token, navigate]);
 
   const handleInputChange = (e, index = null) => {
     const { name, value } = e.target;
     if (index === null) {
-      setTeamLeader({ ...teamLeader, [name]: value });
+      setTeamData(prevData => ({
+        ...prevData,
+        teamLeader: { ...prevData.teamLeader, [name]: value },
+      }));
     } else {
-      const members = [...teamMembers];
+      const members = [...teamData.teamMembers];
       members[index][name] = value;
-      setTeamMembers(members);
+      setTeamData(prevData => ({ ...prevData, teamMembers: members }));
     }
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // Submit form logic here
+
+    const registrationData = {
+      roomId: roomId || '',
+      EventDate: EventDate || " ",
+      time: time || '',
+      map: map || '',
+      ticket: ticket || '',
+      teamDetails: teamData,
+    };
+    
+    try {
+      const response = await axios.post(`${url}/api/registration/register`, registrationData, {
+        headers: { Authorization: `Bearer ${token}` },
+      });
+
+      if (response.data.success) {
+        const { session_url } = response.data;
+        window.location.replace(session_url);
+      } else {
+        alert(`Registration failed: ${response.data.message}`);
+        console.log(response.data.message);
+      }
+    } catch (error) {
+      console.error('Error during registration:', error);
+      alert('An error occurred. Please try again.');
+    }
   };
 
   return (
@@ -64,13 +108,43 @@ const TeamRegister = () => {
           />
         </div>
         <div className='form-group'>
+          <label htmlFor='EventDate'>Date</label>
+          <input
+            type='text'
+            id='EventDate'
+            name='EventDate'
+            value={EventDate || ''}
+            readOnly
+          />
+        </div>
+        <div className='form-group'>
+          <label htmlFor='time'>Time</label>
+          <input
+            type='text'
+            id='time'
+            name='time'
+            value={time || ''}
+            readOnly
+          />
+        </div>
+        <div className='form-group'>
+          <label htmlFor='map'>Map</label>
+          <input
+            type='text'
+            id='map'
+            name='map'
+            value={map || ''}
+            readOnly
+          />
+        </div>
+        <div className='form-group'>
           <label htmlFor='teamName'>Team Name</label>
           <input
             type='text'
             id='teamName'
             name='teamName'
-            value={teamName}
-            onChange={(e) => setTeamName(e.target.value)}
+            value={teamData.teamName}
+            onChange={(e) => setTeamData(prevData => ({ ...prevData, teamName: e.target.value }))}
             required
           />
         </div>
@@ -81,8 +155,8 @@ const TeamRegister = () => {
             type='text'
             id='leaderName'
             name='name'
-            value={teamLeader.name}
-            onChange={(e) => handleInputChange(e)}
+            value={teamData.teamLeader.name}
+            onChange={handleInputChange}
             required
           />
           <label htmlFor='leaderPhone'>Phone Number</label>
@@ -90,8 +164,8 @@ const TeamRegister = () => {
             type='tel'
             id='leaderPhone'
             name='phone'
-            value={teamLeader.phone}
-            onChange={(e) => handleInputChange(e)}
+            value={teamData.teamLeader.phone}
+            onChange={handleInputChange}
             required
           />
           <label htmlFor='leaderFreeFireId'>Free Fire ID</label>
@@ -99,14 +173,14 @@ const TeamRegister = () => {
             type='text'
             id='leaderFreeFireId'
             name='freeFireId'
-            value={teamLeader.freeFireId}
-            onChange={(e) => handleInputChange(e)}
+            value={teamData.teamLeader.freeFireId}
+            onChange={handleInputChange}
             required
           />
         </div>
         <div className='form-group'>
           <h3>Other Team Members</h3>
-          {teamMembers.map((member, index) => (
+          {teamData.teamMembers.map((member, index) => (
             <div key={index} className='team-member'>
               <label htmlFor={`memberName${index}`}>Name</label>
               <input
@@ -130,7 +204,7 @@ const TeamRegister = () => {
           ))}
         </div>
         <button type='submit' className='submit-btn'>
-          Register Team
+          PROCEED TO PAYMENT
         </button>
       </form>
     </div>

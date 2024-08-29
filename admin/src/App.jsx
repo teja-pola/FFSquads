@@ -6,6 +6,7 @@ import Nav from './components/nav/Nav.jsx';
 import Sidebar from './components/sidebar/Sidebar.jsx';
 import Add from './pages/add/Add.jsx';
 import List from './pages/list/List.jsx';
+import Registration from './pages/registrations/Registration.jsx';
 
 const App = () => {
 
@@ -21,6 +22,7 @@ const App = () => {
         <Routes>
           <Route path='/add' element={<Add url={url}/>}/>
           <Route path='/list' element={<List url={url}/>}/>
+          <Route path='/registrations' element={<Registration url={url}/>}/>
         </Routes>
       </div>
     </div>

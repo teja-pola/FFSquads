@@ -51,7 +51,7 @@ const List = ({url}) => {
           return(
             <div key={index} className="list-table-format">
               <p>{room.roomId}</p>
-              <p>{room.date}</p>
+              <p>{room.EventDate}</p>
               <p>{room.time}</p>
               <p>{room.map}</p>
               <p>{room.prize}</p>
