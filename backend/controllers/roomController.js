@@ -8,7 +8,7 @@ export const addRoom = async (req,res) => {
 
     const room = new roomModel({
         roomId: req.body.roomId,
-        date: req.body.date,
+        EventDate: req.body.EventDate,
         time:req.body.time,
         map:req.body.map,
         prize:req.body.prize,
@@ -18,7 +18,7 @@ export const addRoom = async (req,res) => {
 
     try{
         await room.save();
-        res.json({success:true,message:"Food item added"})
+        res.json({success:true,message:"Room added"})
     }catch(error){
         console.log(error)
         res.json({success:false,message:"Error"})

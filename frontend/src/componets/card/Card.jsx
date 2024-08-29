@@ -3,7 +3,7 @@ import './Card.css';
 import { Context } from "../../context/Context.jsx";
 import { Link } from "react-router-dom";
 
-const Card = ({ _id, roomId, date, time, map, prize, winners, ticket }) => {
+const Card = ({ _id, roomId, EventDate, time, map, prize, winners, ticket }) => {
   const { url } = useContext(Context);
 
   return (
@@ -14,7 +14,7 @@ const Card = ({ _id, roomId, date, time, map, prize, winners, ticket }) => {
         </div>
         <div className="room-card-timings">
           <div className="room-card-date">
-            <p>Date : {date}</p>
+            <p>Date : {EventDate}</p>
           </div>
           <div className="room-card-time">
             <p>Time : {time}</p>
@@ -35,9 +35,9 @@ const Card = ({ _id, roomId, date, time, map, prize, winners, ticket }) => {
           </div>
         </div>
         <div className="room-card-btn">
-        <Link to={{
+          <Link to={{
             pathname: "/register",
-            search: `?roomId=${roomId}&ticket=${ticket}`
+            search: `?roomId=${roomId}&ticket=${ticket}&EventDate=${EventDate}&time=${time}&map=${map}`
           }}>
             <button>Join Now</button>
           </Link>

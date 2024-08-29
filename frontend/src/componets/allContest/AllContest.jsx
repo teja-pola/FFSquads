@@ -13,7 +13,7 @@ const AllContest = () => {
        <div className="room-display-list">
         {
           roomList.map((room,index)=>{
-            return <Card key={index} _id={room._id} roomId={room.roomId} date={room.date} time={room.time} map={room.map} prize={room.prize} winners={room.winners} ticket = {room.ticket} />
+            return <Card key={index} _id={room._id} roomId={room.roomId} EventDate={room.EventDate} time={room.time} map={room.map} prize={room.prize} winners={room.winners} ticket = {room.ticket} />
           })
         }
        </div>

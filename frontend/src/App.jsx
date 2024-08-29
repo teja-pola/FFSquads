@@ -7,6 +7,7 @@ import Navbar from './componets/navbar/navbar.jsx';
 import LoginPopup from './componets/loginpopup/LoginPopup.jsx';
 import Profile from './pages/profile/Profile.jsx';
 import TeamRegister from './pages/teamregister/TeamRegister.jsx';
+import Verify from './pages/verify/Verify.jsx';
 
 const App = () => {
 
@@ -22,6 +23,7 @@ const App = () => {
         <Route path="/" element={<Home />}/>
         <Route path="/profile" element={<Profile/>}/>
         <Route path='/register' element={<TeamRegister />}/>
+        <Route path='/Verify' element={<Verify />} />
       </Routes>
     </div>
     </>

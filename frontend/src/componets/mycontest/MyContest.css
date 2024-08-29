@@ -5,89 +5,60 @@
 body {
   font-family: 'Orbitron', sans-serif;
   background-color: #ffffff;
-  color: #FFFFFF;
+  color: #0A0C24; /* Adjusted for better readability */
 }
 
 /* Section Heading */
-.section-heading {
+.my-contests h2 {
   font-size: 1.5rem;
   font-weight: 700;
-  color: #0A0C24;
+  color: black;
   margin-bottom: 20px;
-  
 }
 
 /* Container */
-.my-contest-container {
+.my-contests .container {
   margin: 30px auto;
-  max-width: 500px;
-  
-
-  justify-content: left;
-
+  max-width: 800px; /* Increased width for better display */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 /* Contest Card */
-.my-contest {
+.my-contests-contest {
   background-color: #0A0C24;
   border-radius: 10px;
   padding: 20px;
   margin-bottom: 30px;
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
   transition: transform 0.3s;
+  width: 100%; /* Full width within container */
+  max-width: 700px; /* Max width for better readability */
 }
 
-.my-contest:hover {
+.my-contests-contest:hover {
   transform: scale(1.05);
 }
 
 /* Contest Text Styles */
-.my-contest h4 {
+.my-contests-contest p {
   font-size: 1rem;
   margin: 5px 0;
   color: #FFFFFF;
 }
 
-/* Room Details, Title, and Prize Sections */
-.room-title, .room-details, .room-prize {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  margin-bottom: 10px;
+/* Team Members Section */
+.team-members {
+  margin-top: 10px;
 }
 
-/* Room Spots */
-.room-spots {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin: 20px 0;
+.team-members p {
+  margin: 2px 0;
 }
 
-/* Progress Bar */
-progress {
-  
-  height: 10px;
-  border-radius: 5px;
-  overflow: hidden;
-}
-
-progress::-webkit-progress-bar {
-  background-color: #2C2E4A;
-  border-radius: 5px;
-}
-
-progress::-webkit-progress-value {
-  background-color: #FFCC00;
-  border-radius: 5px;
-}
-
-/* Join Now Button */
-.join-now {
-  text-align: center;
-}
-
-.join-btn {
+/* Button Styles */
+.my-contests-contest button {
   background-color: #FFCC00;
   color: #0A0C24;
   font-weight: 700;
@@ -97,8 +68,9 @@ progress::-webkit-progress-value {
   border-radius: 5px;
   cursor: pointer;
   transition: background-color 0.3s;
+  margin-top: 20px;
 }
 
-.join-btn:hover {
+.my-contests-contest button:hover {
   background-color: #FFD633;
 }
